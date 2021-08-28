@@ -15,10 +15,8 @@ export const Home = () => {
         ws.onmessage = (response) => {
                 if(Object.keys(prevAQIData.current).length === 0) {
                     let aqiObj = {};
-                    JSON.parse(response.data).map(item => aqiObj[item.city] = utilityFunction.addNewAQI(item)
-                    )
+                    JSON.parse(response.data).map(item => aqiObj[item.city] = utilityFunction.addNewAQI(item))
                     prevAQIData.current = aqiObj;
-                    console.log('First time', aqiObj)
                     setAQIData(aqiObj);
                 }
                 else 
@@ -54,7 +52,7 @@ export const Home = () => {
                     return (
                         <tr>
                             <td>{k}</td>
-                            <td>{aqiData[k].aqi}</td>
+                            <td style = {{color : `${aqiData[k].color}`}}>{aqiData[k].aqi}</td>
                             <td>{aqiData[k].timeToDisplay}</td>
                         </tr>
                     );
