@@ -13,11 +13,11 @@
  3. DetailedComponent : A magnified view showing up the trend of a particular city inside a line Chart
  
  UtilityFunctions : A constructor function containing the functions for handling multiple types of responses from the server
-    - colorMap : An object containing the color hexcodes with the bands, for attaching it the aqi index as per the value
-    - addNewAQI : A function which creates and returns a new objects of cities coming up for the first time in the response
-    - addToExisitingAQI : A function which adds new AQI information to the AQI of already existing cities 
-    - updateExistingAQI : A function which updates the details of existing data (Like updating the last updated)
-    - updateTimeDisplay : A function which calculates the last updated dynamically with a proper time message 
+  - colorMap : An object containing the color hexcodes with the bands, for attaching it the aqi index as per the value
+  - addNewAQI : A function which creates and returns a new objects of cities coming up for the first time in the response
+  - addToExisitingAQI : A function which adds new AQI information to the AQI of already existing cities 
+  - updateExistingAQI : A function which updates the details of existing data (Like updating the last updated)
+  - updateTimeDisplay : A function which calculates the last updated dynamically with a proper time message 
 
 
 
