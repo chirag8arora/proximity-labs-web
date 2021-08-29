@@ -8,7 +8,7 @@ export const Home = () => {
     const [aqiData, setAQIData] = useState({});
     const prevAQIData = useRef({});
 
-    useEffect(() => {
+    const connectToWS = () => {
         const utilityFunction = new UtilityFunctions();
     
         ws.onopen = () => {
@@ -42,10 +42,27 @@ export const Home = () => {
                     setAQIData(Object.assign({},aqiObjPrev));
                 }
         }
-        ws.onclose = () => {
-            console.log('disconnected')
+        ws.onclose = (e) => {
+            console.log('Socket is closed. Reconnect will be attempted in 1 second.', e.reason);
+            setTimeout(function() {
+                connectToWS();
+            }, 1000);
+        }
+        ws.onerror = err => {
+            console.error(
+                "Socket encountered error: ",
+                err.message,
+                "Closing socket"
+            );
+
+            ws.close();
         }
         
+    }
+
+
+    useEffect(() => {
+        connectToWS()    
     },[])
     
     
