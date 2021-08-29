@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { UtilityFunctions } from "../UtilityFunctions";
 import { AQITable } from "./AQITable";
+import { Modal } from 'antd';
 
 export const Home = () => {
     const ws = new WebSocket('ws://city-ws.herokuapp.com/')
@@ -50,7 +51,7 @@ export const Home = () => {
     
     return (
         <div>
-           <AQITable data = {aqiData}/>
+           <AQITable data = {aqiData} />
         </div>
     )
 }

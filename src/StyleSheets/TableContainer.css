@@ -1,0 +1,15 @@
+.table-row-container {
+  cursor: pointer;
+}
+/* .table-row-container :hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+} */
+
+.model-container {
+  height: 600px;
+  width: 800px;
+  box-shadow: 0 0px 5px #555;
+  margin: auto;
+  background-color: white;
+  margin-top: 12vh;
+}
