@@ -25,6 +25,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   box-shadow: 0 0px 5px #555;
+  position: sticky;
 }
 
 .App-header > img {

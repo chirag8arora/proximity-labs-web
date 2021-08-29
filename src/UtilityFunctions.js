@@ -13,19 +13,21 @@ export function UtilityFunctions() {
     }
     
     this.addNewAQI =  (item) => {
-        return  Object.assign({},{
-                aqi : parseFloat(item.aqi).toFixed(2),
+        return  {
+                aqi : parseFloat(item.aqi).toFixed(2).toString(),
                 timeToDisplay : 'updated just now',
                 timeUpdated : new Date(),
                 color : this.colorMap[Math.floor(item.aqi / 50)]
             }
-        )
     }
     
     this.addToExisitingAQI = (prevItemObj, currItemObj) => {
-        //if(prevItemObj.aqi.count >= 15) prevItemObj.aqi.shift(1)
+        
+        const split_arr = prevItemObj.aqi.split('-')
+        if(split_arr.length >=10) split_arr.shift(1);
+        split_arr.push(parseFloat(currItemObj.aqi).toFixed(2))
         return {
-            aqi : parseFloat(currItemObj.aqi).toFixed(2),
+            aqi : split_arr.join('-'),
             timeToDisplay : 'updated just now',
             timeUpdated : new Date(),
             color : this.colorMap[Math.floor(currItemObj.aqi / 50)]
@@ -36,7 +38,7 @@ export function UtilityFunctions() {
             aqi : item.aqi,
             timeToDisplay : this.updateTimeDisplay(item.timeUpdated),
             timeUpdated : item.timeUpdated,
-            color : this.colorMap[Math.floor(item.aqi / 50)]
+            color : this.colorMap[Math.floor(item.aqi.split('-').pop() / 50)]
         }
     }
     
