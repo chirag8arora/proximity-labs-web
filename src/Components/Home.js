@@ -4,7 +4,7 @@ import { AQITable } from "./AQITable";
 import { Modal } from 'antd';
 
 export const Home = () => {
-    const ws = new WebSocket('ws://city-ws.herokuapp.com/')
+    const ws = new WebSocket('wss://city-ws.herokuapp.com/')
     const [aqiData, setAQIData] = useState({});
     const prevAQIData = useRef({});
 
